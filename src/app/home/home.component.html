@@ -7,7 +7,7 @@
   <div class="column is-two-thirds-mobile is-half-desktop">
     <hr />
     <div *ngFor="let team of teams; let index = index">
-      <div class="columns">
+      <div class="columns is-mobile">
         <div class="column">
           <input
             class="input"
@@ -16,10 +16,10 @@
             [(ngModel)]="team.Name"
           />
         </div>
-        <div class="column">
+        <div class="column is-one-fifth">
           <button
             class="button is-link"
-            *ngIf="index > 7"
+            [disabled]="nbTeams"
             (click)="deleteTeam(index)"
           >
             Delete
@@ -27,9 +27,11 @@
         </div>
       </div>
     </div>
-    <button class="button is-link" (click)="addTeam()">Add team</button>
-    <button class="button is-link" (click)="createLeague()">
-      Create League
-    </button>
+    <div class="button_container">
+      <button class="button is-link" (click)="addTeam()">Add team</button>
+      <button class="button is-link" (click)="createLeague()">
+        Create League
+      </button>
+    </div>
   </div>
 </div>

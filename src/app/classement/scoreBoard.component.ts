@@ -14,7 +14,7 @@ export class ScoreComponent implements OnInit {
     axios.get("http://localhost:3000/api/match/create").then(res => {
       this.disabledRun = false;
       this.results = [...res.data.result[0].scoreBoard];
-      console.log(res.data.result[0].week);
+
       const scoreBoard = {
         week: res.data.result[0].week,
         scoreBoard: this.results
@@ -24,7 +24,7 @@ export class ScoreComponent implements OnInit {
   }
   ngOnInit() {
     const scoreBoard = localStorage.getItem("scoreBoard");
-    console.log(scoreBoard);
+
     if (scoreBoard) {
       this.results = [...JSON.parse(scoreBoard).scoreBoard];
       if (JSON.parse(scoreBoard).week !== 0) {

@@ -20,25 +20,34 @@ export class HomeComponent {
     new Team("Arsenal"),
     new Team("Lyon")
   ];
+  nbTeams = this.teams.length < 9;
   addTeam() {
     this.teams.push(new Team(""));
+    this.nbTeams = this.teams.length < 9;
   }
   deleteTeam(index) {
     console.log(index);
     this.teams.splice(index, 1);
+    this.nbTeams = this.teams.length < 9;
   }
   createLeague() {
     const arrayTeam = this.teams.map(team => team.Name);
-    axios
-      .post("http://localhost:3000/api/league/create", { arrayTeam: arrayTeam })
-      .then(res => {
-        const scoreBoard = {
-          week: res.data.result.week,
-          scoreBoard: [...res.data.result.scoreBoard]
-        };
-        this.message = "League created";
-        localStorage.setItem("scoreBoard", JSON.stringify(scoreBoard));
-      })
-      .catch(err => console.log(err));
+    if (arrayTeam.includes("")) {
+      this.message = "Please make sure there are minimum 8 teams";
+    } else {
+      axios
+        .post("http://localhost:3000/api/league/create", {
+          arrayTeam: arrayTeam
+        })
+        .then(res => {
+          const scoreBoard = {
+            week: res.data.result.week,
+            scoreBoard: [...res.data.result.scoreBoard]
+          };
+          this.message = "League created";
+          localStorage.setItem("scoreBoard", JSON.stringify(scoreBoard));
+        })
+        .catch(err => console.log(err));
+    }
   }
 }

@@ -1,3 +1,9 @@
 .input {
   margin-bottom: 5px;
 }
+
+.button_container {
+  width: 17vw;
+  display: flex;
+  justify-content: space-between;
+}
