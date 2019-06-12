@@ -3,13 +3,22 @@
 </h1>
 <div class="columns is-mobile is-centered">
   <div class="column is-two-thirds-mobile is-half-desktop">
-    <input
-      class="input"
-      type="text"
-      placeholder="Please provide teams name"
-      value="Barcelona"
-      *ngFor="let team of teams"
-    />
+    <div *ngFor="let team of teams; let index = index">
+      <div class="columns">
+        <div class="column">
+          <input
+            class="input"
+            type="text"
+            placeholder="Please provide teams name"
+            [(ngModel)]="team.Name"
+          />
+        </div>
+        <div class="column">
+          <button class="button is-link" *ngIf="index > 7">Delete</button>
+        </div>
+      </div>
+    </div>
     <button class="button is-link" (click)="addTeam()">Add team</button>
+    <button class="button is-link" (click)="create()">Create League</button>
   </div>
 </div>

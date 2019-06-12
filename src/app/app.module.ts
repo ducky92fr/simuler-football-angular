@@ -1,5 +1,6 @@
 import { BrowserModule } from "@angular/platform-browser";
 import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
 
 import { AppComponent } from "./app.component";
 import { NavBarComponent } from "./nav/navigation.component";
@@ -14,7 +15,7 @@ const appRoutes: Routes = [
 ];
 @NgModule({
   declarations: [AppComponent, NavBarComponent, HomeComponent, ScoreComponent],
-  imports: [BrowserModule, RouterModule.forRoot(appRoutes)],
+  imports: [BrowserModule, FormsModule, RouterModule.forRoot(appRoutes)],
   providers: [],
   bootstrap: [AppComponent]
 })

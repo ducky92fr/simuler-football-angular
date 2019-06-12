@@ -1,4 +1,5 @@
 import { Component } from "@angular/core";
+import { Team } from "./Team";
 
 @Component({
   selector: "app-home",
@@ -7,16 +8,19 @@ import { Component } from "@angular/core";
 })
 export class HomeComponent {
   teams = [
-    "Barcelone",
-    "Chelsea",
-    "ManU",
-    "ManC",
-    "RealMadrid",
-    "PSG",
-    "Arsenal",
-    "Lyon"
+    new Team("Barcelone"),
+    new Team("Chelsea"),
+    new Team("ManU"),
+    new Team("ManC"),
+    new Team("RealMadrid"),
+    new Team("PSG"),
+    new Team("Arsenal"),
+    new Team("Lyon")
   ];
   addTeam() {
-    this.teams.push("1");
+    this.teams.push(new Team(""));
+  }
+  create() {
+    console.log(this.teams);
   }
 }
