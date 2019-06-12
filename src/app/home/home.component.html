@@ -1,8 +1,11 @@
 <h1 class="has-text-centered is-size-4 has-text-info">
   Add teams and create league
 </h1>
+<div class="has-text-centered has-text-danger">{{ message }}</div>
+
 <div class="columns is-mobile is-centered">
   <div class="column is-two-thirds-mobile is-half-desktop">
+    <hr />
     <div *ngFor="let team of teams; let index = index">
       <div class="columns">
         <div class="column">
@@ -14,11 +17,19 @@
           />
         </div>
         <div class="column">
-          <button class="button is-link" *ngIf="index > 7">Delete</button>
+          <button
+            class="button is-link"
+            *ngIf="index > 7"
+            (click)="deleteTeam(index)"
+          >
+            Delete
+          </button>
         </div>
       </div>
     </div>
     <button class="button is-link" (click)="addTeam()">Add team</button>
-    <button class="button is-link" (click)="create()">Create League</button>
+    <button class="button is-link" (click)="createLeague()">
+      Create League
+    </button>
   </div>
 </div>

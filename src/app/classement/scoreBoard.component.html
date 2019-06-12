@@ -1,43 +1,55 @@
 <p class="has-text-centered">CLASSEMENT</p>
 <div class="has-text-centered">
-  <button (click)="startMatch()" class="button is-link">Run</button>
+  <button
+    (click)="startMatch()"
+    class="button is-link"
+    [disabled]="!disabledRun"
+  >
+    Run
+  </button>
 </div>
 
 <div class="columns is-mobile is-centered">
   <div class="column is-full-mobile is-two-thirds-desktop">
     <hr />
-    <div class="table__wrapper">
+    <div class="table_container">
       <table class="table is-narrow is-fullwidth">
         <thead>
           <tr>
             <th></th>
-            <th class="club">Club</th>
-            <th>
+            <th class="club has-text-centered">Club</th>
+            <th class="club has-text-centered">
               <abbr title="Points">PTS</abbr>
             </th>
-            <th class="test"><abbr title="Journée">J</abbr></th>
-            <th class="test"><abbr title="Victoires">V</abbr></th>
-            <th class="test"><abbr title="Nuls">N</abbr></th>
-            <th class="test"><abbr title="Défaites">D</abbr></th>
-            <th class="test"><abbr title="Buts Pour">BP</abbr></th>
-            <th class="test"><abbr title="Buts Contre">BC</abbr></th>
-            <th class="test"><abbr title="Différence">DIF</abbr></th>
+            <th class="has-text-centered">
+              <abbr title="Journée">J</abbr>
+            </th>
+            <th class="has-text-centered"><abbr title="Victoires">V</abbr></th>
+            <th class="has-text-centered"><abbr title="Nuls">N</abbr></th>
+            <th class="has-text-centered"><abbr title="Défaites">D</abbr></th>
+            <th class="has-text-centered"><abbr title="Buts Pour">BP</abbr></th>
+            <th class="has-text-centered">
+              <abbr title="Buts Contre">BC</abbr>
+            </th>
+            <th class="has-text-centered">
+              <abbr title="Différence">DIF</abbr>
+            </th>
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let result of results">
-            <th>1</th>
+          <tr *ngFor="let result of results; let index = index">
+            <th>{{ index + 1 }}</th>
             <td>
               {{ result.team.nom }}
             </td>
-            <td class="test">{{ result.score }}</td>
-            <td class="test">{{ result.numberMatchPlayed }}</td>
-            <td class="test">Victoire</td>
-            <td class="test">N</td>
-            <td class="test">D</td>
-            <td class="test">{{ result.butMarque }}</td>
-            <td class="test">{{ result.butEncaisse }}</td>
-            <td class="test">{{ result.differBut }}</td>
+            <td class="has-text-centered">{{ result.score }}</td>
+            <td class="has-text-centered">{{ result.numberMatchPlayed }}</td>
+            <td class="has-text-centered">V</td>
+            <td class="has-text-centered">N</td>
+            <td class="has-text-centered">D</td>
+            <td class="has-text-centered">{{ result.butMarque }}</td>
+            <td class="has-text-centered">{{ result.butEncaisse }}</td>
+            <td class="has-text-centered">{{ result.differBut }}</td>
           </tr>
         </tbody>
       </table>
