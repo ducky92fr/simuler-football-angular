@@ -1,0 +1,39 @@
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a
+      role="button"
+      class="navbar-burger burger"
+      [ngClass]="{ 'is-active': navMenu === true }"
+      aria-label="menu"
+      aria-expanded="false"
+      data-target="navbarBasicExample"
+      (click)="toggleMenu()"
+    >
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+
+  <div
+    id="navbarBasicExample"
+    class="navbar-menu"
+    [ngClass]="{ 'is-active': navMenu === true }"
+  >
+    <div class="navbar-start">
+      <a class="navbar-item" routerLink="/">
+        HOME
+      </a>
+
+      <a class="navbar-item" routerLink="/score">
+        SCOREBOARD
+      </a>
+      <a class="navbar-item">
+        PLAYOFF
+      </a>
+      <a class="navbar-item">
+        DETAILS
+      </a>
+    </div>
+  </div>
+</nav>

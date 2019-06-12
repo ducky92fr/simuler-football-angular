@@ -1,0 +1,15 @@
+<h1 class="has-text-centered is-size-4 has-text-info">
+  Add teams and create league
+</h1>
+<div class="columns is-mobile is-centered">
+  <div class="column is-two-thirds-mobile is-half-desktop">
+    <input
+      class="input"
+      type="text"
+      placeholder="Please provide teams name"
+      value="Barcelona"
+      *ngFor="let team of teams"
+    />
+    <button class="button is-link" (click)="addTeam()">Add team</button>
+  </div>
+</div>
