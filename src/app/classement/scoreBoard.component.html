@@ -1,11 +1,10 @@
-<p class="has-text-centered">CLASSEMENT</p>
 <div class="has-text-centered">
   <button
     (click)="startMatch()"
     class="button is-link"
     [disabled]="!disabledRun"
   >
-    Run
+    Simulate
   </button>
 </div>
 
@@ -13,7 +12,7 @@
   <div class="column is-full-mobile is-two-thirds-desktop">
     <hr />
     <div class="table_container">
-      <table class="table is-narrow is-fullwidth">
+      <table class="table is-striped is-fullwidth">
         <thead>
           <tr>
             <th></th>
@@ -44,9 +43,9 @@
             </td>
             <td class="has-text-centered">{{ result.score }}</td>
             <td class="has-text-centered">{{ result.numberMatchPlayed }}</td>
-            <td class="has-text-centered">V</td>
-            <td class="has-text-centered">N</td>
-            <td class="has-text-centered">D</td>
+            <td class="has-text-centered">{{ result.victoire.number }}</td>
+            <td class="has-text-centered">{{ result.matchNul.number }}</td>
+            <td class="has-text-centered">{{ result.defaite.number }}</td>
             <td class="has-text-centered">{{ result.butMarque }}</td>
             <td class="has-text-centered">{{ result.butEncaisse }}</td>
             <td class="has-text-centered">{{ result.differBut }}</td>

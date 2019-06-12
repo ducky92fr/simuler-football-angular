@@ -1,7 +1,6 @@
 import { Component } from "@angular/core";
 import { Team } from "./Team";
 import axios from "axios";
-import { error } from "util";
 
 @Component({
   selector: "app-home",

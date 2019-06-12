@@ -1,0 +1,29 @@
+<div class="columns is-mobile is-centered">
+  <div class="column is-four-fifths-mobile is-one-third-desktop">
+    <div class="control has-text-centered">
+      <div class="select">
+        <select #mySelect (change)="displayDetails(mySelect.value)">
+          <option>Select week</option>
+          <option
+            *ngFor="let allMatch of allMatchs; let index = index"
+            value="{{ index }}"
+            >Week {{ allMatch.week }}</option
+          >
+        </select>
+      </div>
+    </div>
+    <div class="table_container">
+      <table class="table is-striped is-fullwidth">
+        <tbody>
+          <tr *ngFor="let match of matchToDisplay">
+            <th class="has-text-centered">{{ match[0].team.nom }}</th>
+            <td class="has-text-centered">{{ match[0].but }}</td>
+            <th class="has-text-centered">-</th>
+            <td class="has-text-centered">{{ match[1].but }}</td>
+            <th class="has-text-centered">{{ match[1].team.nom }}</th>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
