@@ -38,8 +38,6 @@ export class FinalComponent implements OnInit {
       const parseMatchs = JSON.parse(matchs).sort((a, b) => a.week - b.week);
       this.final = [...parseMatchs.slice(parseMatchs.length - 3)];
       //update teams array and quarter final
-      console.log(parseMatchs);
-      console.log(this.final);
       for (let i = 0; i < 4; i++) {
         this.eightTeams.teams[i][0] = this.final[0].matchs[i][0].team.nom;
         this.eightTeams.teams[i][1] = this.final[0].matchs[i][1].team.nom;
