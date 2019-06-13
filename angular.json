@@ -20,8 +20,11 @@
             "tsConfig": "tsconfig.app.json",
             "aot": false,
             "assets": ["src/favicon.ico", "src/assets"],
-            "styles": ["src/styles.css"],
-            "scripts": []
+            "styles": ["src/styles.css", "src/dist/jquery.bracket.min.css"],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "src/dist/jquery.bracket.min.js"
+            ]
           },
           "configurations": {
             "production": {
